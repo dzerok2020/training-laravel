@@ -16,6 +16,23 @@
                                         <span class="text-danger">{{ $errors->first('name') }}</span>
                                     @endif
                                 </div>
+                                <!-- student id -->
+                                <div class="form-group mb-3">
+                                    <input type="text" placeholder="StudentID" id="student_id" class="form-control" name="student_id"
+                                           required autofocus>
+                                    @if ($errors->has('student_id'))
+                                        <span class="text-danger">{{ $errors->first('student_id') }}</span>
+                                    @endif
+                                </div>
+                                <!-- Address -->
+                                <div class="form-group mb-3">
+                                    <input type="text" placeholder="Address" id="address" class="form-control" name="address"
+                                           required autofocus>
+                                    @if ($errors->has('address'))
+                                        <span class="text-danger">{{ $errors->first('address') }}</span>
+                                    @endif
+                                </div>
+                                <!--  -->
                                 <div class="form-group mb-3">
                                     <input type="text" placeholder="Email" id="email_address" class="form-control"
                                            name="email" required autofocus>

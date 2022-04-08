@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c61ff82cbf0142a401a48a8161e1595a",
+    "content-hash": "e13bf04b6011ff34279bd10f0f28df38",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -424,6 +424,47 @@
                 }
             ],
             "time": "2022-01-18T15:43:28+00:00"
+        },
+        {
+            "name": "dzerok2020/mypackage",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dzerok2020/mypackage.git",
+                "reference": "78424109e1d81a1e48b4e9fc31d6de4889c4f386"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dzerok2020/mypackage/zipball/78424109e1d81a1e48b4e9fc31d6de4889c4f386",
+                "reference": "78424109e1d81a1e48b4e9fc31d6de4889c4f386",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dzerok2020\\Mypackage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "DzeroK",
+                    "email": "dzerok2020@gmail.com"
+                }
+            ],
+            "description": "Package by DzeroK",
+            "keywords": [
+                "Mypackage"
+            ],
+            "support": {
+                "issues": "https://github.com/dzerok2020/mypackage/issues",
+                "source": "https://github.com/dzerok2020/mypackage/tree/main"
+            },
+            "time": "2022-03-26T02:29:12+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -7894,7 +7935,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "dzerok2020/mypackage": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -7,12 +7,24 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use DB;
+use App\Quotation;
 
 //Unknown
 class CustomAuthController extends Controller
 {
     public function index()
     {
+        $data=DB::table('users')->get();
+    	// print_r($data);
+        
+        // $users = DB::table('users')->get();
+
+        // return view()-> with ('home', ['users' => $users]);
+    }
+
+    public function login()
+    {        
         return view('auth.login');
     }
 
@@ -41,6 +53,8 @@ class CustomAuthController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'student_id' => 'required',
+            'address' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
@@ -55,6 +69,8 @@ class CustomAuthController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'student_id' => $data['student_id'],
+            'address' => $data['address'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
