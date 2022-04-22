@@ -10,11 +10,16 @@
                             <form method="POST" action="{{ route('login.custom') }}">
                                 @csrf
                                 <div class="form-group mb-3">
-                                    <input type="text" placeholder="Email" id="email" class="form-control" name="email"
+                                    <input type="text" placeholder="Email/Username" id="email_username"
+                                           class="form-control{{ $errors->has('username') || $errors->has('email') ? ' is-invalid' : '' }}"
+                                           name="email_username"
+                                           value="{{ old('username') ?: old('email') }}"
                                            required
                                            autofocus>
-                                    @if ($errors->has('email'))
-                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @if ($errors->has('username') || $errors->has('email'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">
