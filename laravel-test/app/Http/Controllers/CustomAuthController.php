@@ -15,16 +15,13 @@ class CustomAuthController extends Controller
 {
     public function index()
     {
-        $data=DB::table('users')->get();
-    	// print_r($data);
-        
-        // $users = DB::table('users')->get();
+        $users = User::all();
 
-        // return view()-> with ('home', ['users' => $users]);
+        return view('home', compact('users'));
     }
 
     public function login()
-    {        
+    {
         return view('auth.login');
     }
 
