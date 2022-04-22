@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use DB;
-use App\Quotation;
 
 //Unknown
 class CustomAuthController extends Controller
@@ -28,11 +26,19 @@ class CustomAuthController extends Controller
     public function customLogin(Request $request)
     {
         $request->validate([
-            'email' => 'required',
+            'email_username' => 'required',
             'password' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $login_type = filter_var($request->input('email_username'), FILTER_VALIDATE_EMAIL )
+            ? 'email'
+            : 'username';
+
+        $request->merge([
+            $login_type => $request->input('email_username')
+        ]);
+
+        $credentials = $request->only($login_type, 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard')
                 ->withSuccess('Signed in');
@@ -49,9 +55,10 @@ class CustomAuthController extends Controller
     public function customRegistration(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'student_id' => 'required',
-            'address' => 'required',
+            'last_name' => 'required',
+            'first_name' => 'required',
+            'phone' => 'required',
+            'username' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
@@ -65,9 +72,10 @@ class CustomAuthController extends Controller
     public function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'student_id' => $data['student_id'],
-            'address' => $data['address'],
+            'last_name' => $data['last_name'],
+            'first_name' => $data['first_name'],
+            'phone' => $data['phone'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);

@@ -9,30 +9,39 @@
                         <div class="card-body">
                             <form action="{{ route('register.custom') }}" method="POST">
                                 @csrf
+                                <!-- last name-->
                                 <div class="form-group mb-3">
-                                    <input type="text" placeholder="Name" id="name" class="form-control" name="name"
+                                    <input type="text" placeholder="Last Name" id="last_name" class="form-control" name="last_name"
                                            required autofocus>
-                                    @if ($errors->has('name'))
-                                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                                    @if ($errors->has('last_name'))
+                                        <span class="text-danger">{{ $errors->first('last_name') }}</span>
                                     @endif
                                 </div>
-                                <!-- student id -->
+                                <!-- first name-->
                                 <div class="form-group mb-3">
-                                    <input type="text" placeholder="StudentID" id="student_id" class="form-control" name="student_id"
+                                    <input type="text" placeholder="First Name" id="first_name" class="form-control" name="first_name"
                                            required autofocus>
-                                    @if ($errors->has('student_id'))
-                                        <span class="text-danger">{{ $errors->first('student_id') }}</span>
+                                    @if ($errors->has('first_name'))
+                                        <span class="text-danger">{{ $errors->first('first_name') }}</span>
                                     @endif
                                 </div>
-                                <!-- Address -->
+                                <!-- Phone -->
                                 <div class="form-group mb-3">
-                                    <input type="text" placeholder="Address" id="address" class="form-control" name="address"
+                                    <input type="text" placeholder="Phone number" id="phone" class="form-control" name="phone"
                                            required autofocus>
-                                    @if ($errors->has('address'))
-                                        <span class="text-danger">{{ $errors->first('address') }}</span>
+                                    @if ($errors->has('phone'))
+                                        <span class="text-danger">{{ $errors->first('phone') }}</span>
                                     @endif
                                 </div>
-                                <!--  -->
+                                <!-- Username -->
+                                <div class="form-group mb-3">
+                                    <input type="text" placeholder="Username" id="username" class="form-control" name="username"
+                                           required autofocus>
+                                    @if ($errors->has('username'))
+                                        <span class="text-danger">{{ $errors->first('username') }}</span>
+                                    @endif
+                                </div>
+                                <!-- email -->
                                 <div class="form-group mb-3">
                                     <input type="text" placeholder="Email" id="email_address" class="form-control"
                                            name="email" required autofocus>
@@ -40,6 +49,7 @@
                                         <span class="text-danger">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
+                                <!-- Password -->
                                 <div class="form-group mb-3">
                                     <input type="password" placeholder="Password" id="password" class="form-control"
                                            name="password" required>
